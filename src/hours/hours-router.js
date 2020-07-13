@@ -58,7 +58,7 @@ hoursRouter
             .then(hours => {
                 res
                     .status(201)
-                    .location(path.posix.join(req.originalUrl, `/${hours.hId}`))
+                    .location(path.posix.join(req.originalUrl, `/${hours.hour_id}`))
                     .json(HoursService.serializeHour(hours))
             })
             .catch(next)
