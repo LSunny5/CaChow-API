@@ -1,15 +1,15 @@
 BEGIN;
-INSERT INTO restHours (hId, sunOpen, sunClose, monOpen, monClose, tuesOpen, tuesClose, wedOpen, wedClose, thuOpen, thuClose, friOpen, friClose, satOpen, satClose)
+INSERT INTO restaurant_hours (hours_id, sun_open, sun_close, mon_open, mon_close, tues_open, tues_close, wed_open, wed_close, thu_open, thu_close, fri_open, fri_close, sat_open, sat_close)
 VALUES
     (1, '11:00AM', '9:00PM', '11:00AM', '9:00PM', '11:00AM', '9:00PM', '11:00AM', '9:00PM', '11:00AM', '9:00PM', '11:00AM', '9:00PM', '11:00AM', '9:00PM'),
     (2, 'Closed', 'Closed', '11:00AM', '7:00PM', '11:00AM', '7:00PM', '11:00AM', '7:00PM', '11:00AM', '7:00PM', '11:00AM', '7:00PM', '11:00AM', '5:00PM');
 
-INSERT INTO cachow_restaurants (rId, rOwner, rImage, rType, rName, rAddress, rCity, rState, rZip, rPhone, rHours)
+INSERT INTO cachow_restaurants (r_id, r_owner, r_image, r_type, r_name, r_address, r_city, r_state, r_zip, r_phone, r_hours)
 VALUES
     (1, 1, 'No Image', 'Fast Food', 'Shake Shack', '610 Commons Way', 'Bridgewater', 'NJ', '08807', '(732) 347-8820', 1),
     (2, 2, 'No Image', 'Fast Food', 'Chick-fil-A', '3710 U.S. 9 Ste 2314', 'Freehold', 'NJ', '07728', '(732) 308-3402', 2);
 
-INSERT INTO restMenu (mId, mRestId, mName, mCat, mPrice)
+INSERT INTO restaurant_menu (item_id, item_restaurant, item_name, item_cat, item_price)
 VALUES
     (1, 1, 'Single ShackBurger', 1, 5.89), /*Burgers*/
     (2, 1, 'Single SmokeShack', 1, 7.39), /*Burgers*/

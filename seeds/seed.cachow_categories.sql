@@ -1,5 +1,5 @@
 BEGIN;
-INSERT INTO cachow_categories (cId, cName)
+INSERT INTO cachow_categories (cat_id, cat_name)
 VALUES
     (1, 'Burgers'), 
     (2, 'Chicken'), 

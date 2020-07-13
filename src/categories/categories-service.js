@@ -3,7 +3,7 @@ const CategoriesService = {
     return knex.select('*').from('cachow_categories')
   },
   getById(knex, id) {
-    return knex.from('cachow_categories').select('*').where('cId', id).first()
+    return knex.select('*').from('cachow_categories').where('cat_id', id).first()
   },
   insertCategory(knex, newCategory) {
     return knex
@@ -14,14 +14,14 @@ const CategoriesService = {
         return rows[0]
       })
   },
-  deleteCategory(knex, id) {
+  deleteCategory(knex, cat_id) {
     return knex('cachow_categories')
-      .where({ id })
+      .where({ cat_id })
       .delete()
   },
-  updateCategory(knex, id, editedCategory) {
+  updateCategory(knex, cat_id, editedCategory) {
     return knex('cachow_categories')
-      .where({ id })
+      .where({ cat_id })
       .update(editedCategory)
   },
 }

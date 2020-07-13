@@ -1,26 +1,26 @@
 const MenuService = {
     getAllItems(knex) {
-      return knex.select('*').from('restMenu')
+      return knex.select('*').from('restaurant_menu')
     },
     getById(knex, id) {
-      return knex.from('restMenu').select('*').where('mId', id).first()
+      return knex.from('restaurant_menu').select('*').where('mId', id).first()
     },
     insertItem(knex, newItem) {
       return knex
         .insert(newItem)
-        .into('restMenu')
+        .into('restaurant_menu')
         .returning('*')
         .then(rows => {
           return rows[0]
         })
     },
     deleteItem(knex, id) {
-      return knex('restMenu')
+      return knex('restaurant_menu')
         .where({ id })
         .delete()
     },
     updateItem(knex, id, editedItem) {
-      return knex('restMenu')
+      return knex('restaurant_menu')
         .where({ id })
         .update(editedItem)
     },
