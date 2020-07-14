@@ -2,6 +2,7 @@ const path = require('path')
 const express = require('express')
 const logger = require('../logger');
 const MenuService = require('./menu-service');
+const { requireAuth } = require('../middleware/jwt-auth');
 
 const menuRouter = express.Router()
 const jsonParser = express.json()
@@ -17,7 +18,7 @@ menuRouter
             })
             .catch(next)
     })
-    .post(jsonParser, (req, res, next) => {
+    .post(requireAuth, jsonParser, (req, res, next) => {
         const { item_restaurant, item_name, item_cat, item_price } = req.body
         const newItem = { item_restaurant, item_name, item_cat, item_price };
 
@@ -81,7 +82,7 @@ menuRouter
     .get((req, res, next) => {
         res.json(MenuService.serializeItem(res.items))
     })
-    .delete((req, res, next) => {
+    .delete(requireAuth, (req, res, next) => {
         MenuService.deleteItem(
             req.app.get('db'),
             req.params.item_id
@@ -92,7 +93,7 @@ menuRouter
             .catch(next)
     })
 
-    .patch(jsonParser, (req, res, next) => {
+    .patch(requireAuth, jsonParser, (req, res, next) => {
         const { item_restaurant, item_name, item_cat, item_price } = req.body;
         const updateItem = { item_restaurant, item_name, item_cat, item_price };
 

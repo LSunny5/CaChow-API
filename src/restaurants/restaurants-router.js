@@ -2,6 +2,7 @@ const path = require('path')
 const express = require('express')
 const logger = require('../logger');
 const RestaurantService = require('./restaurants-service');
+const { requireAuth } = require('../middleware/jwt-auth')
 
 const restaurantRouter = express.Router()
 const jsonParser = express.json()
@@ -15,7 +16,7 @@ restaurantRouter
             })
             .catch(next)
     })
-    .post(jsonParser, (req, res, next) => {
+    .post(requireAuth, jsonParser, (req, res, next) => {
         const { r_owner, r_image, r_type, r_name, r_address, r_city, r_state, r_zip, r_phone, r_hours } = req.body
         const newRestaurant = { r_owner, r_image, r_type, r_name, r_address, r_city, r_state, r_zip, r_phone, r_hours };
 
@@ -72,7 +73,7 @@ restaurantRouter
     .get((req, res, next) => {
         res.json(RestaurantService.serializeRestaurant(res.restaurant))
     })
-    .delete((req, res, next) => {
+    .delete(requireAuth, (req, res, next) => {
         RestaurantService.deleteRestaurant(req.app.get('db'), req.params.r_id)
             .then(numRowsAffected => {
                 res.status(204).end()
@@ -80,7 +81,7 @@ restaurantRouter
             .catch(next)
     })
 
-    .patch(jsonParser, (req, res, next) => {
+    .patch(requireAuth, jsonParser, (req, res, next) => {
         const { r_owner, r_image, r_type, r_name, r_address, r_city, r_state, r_zip, r_phone, r_hours } = req.body
         const updateRestaurant = { r_owner, r_image, r_type, r_name, r_address, r_city, r_state, r_zip, r_phone, r_hours };
 

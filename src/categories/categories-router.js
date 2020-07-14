@@ -4,6 +4,7 @@ const xss = require('xss')
 const logger = require('../logger');
 const { CategoryValidate } = require('./validate-category');
 const CategoriesService = require('./categories-service');
+const { requireAuth } = require('../middleware/jwt-auth');
 
 const categoriesRouter = express.Router()
 const jsonParser = express.json()
@@ -25,7 +26,7 @@ categoriesRouter
             })
             .catch(next)
     })
-    .post(jsonParser, (req, res, next) => {
+    .post(requireAuth, jsonParser, (req, res, next) => {
         const { cat_name } = req.body
         const newCategory = { cat_name }
 
@@ -88,7 +89,7 @@ categoriesRouter
     .get((req, res, next) => {
         res.json(serializeCategory(res.category))
     })
-    .delete((req, res, next) => {
+    .delete(requireAuth, (req, res, next) => {
         CategoriesService.deleteCategory(
             req.app.get('db'),
             req.params.cat_id
@@ -99,7 +100,7 @@ categoriesRouter
             .catch(next)
     })
 
-    .patch(jsonParser, (req, res, next) => {
+    .patch(requireAuth, jsonParser, (req, res, next) => {
         const { cat_name } = req.body
         const updateCategory = { cat_name }
 

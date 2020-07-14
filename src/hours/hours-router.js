@@ -2,6 +2,7 @@ const path = require('path')
 const express = require('express')
 const logger = require('../logger');
 const HoursService = require('./hours-service');
+const { requireAuth } = require('../middleware/jwt-auth');
 
 const hoursRouter = express.Router()
 const jsonParser = express.json()
@@ -17,7 +18,7 @@ hoursRouter
             })
             .catch(next)
     })
-    .post(jsonParser, (req, res, next) => {
+    .post(requireAuth, jsonParser, (req, res, next) => {
         const { sun_open, sun_close, mon_open, mon_close, tues_open, tues_close, wed_open,
             wed_close, thu_open, thu_close, fri_open, fri_close, sat_open, sat_close } = req.body
         const newHours = {
@@ -40,7 +41,6 @@ hoursRouter
             }
         }
 
-        //validate the folder
         const error = HoursService.validateHour(newHours);
         if (error) {
             logger.error({
@@ -85,7 +85,7 @@ hoursRouter
     .get((req, res, next) => {
         res.json(HoursService.serializeHour(res.hours))
     })
-    .delete((req, res, next) => {
+    .delete(requireAuth, (req, res, next) => {
         HoursService.deleteHours(
             req.app.get('db'),
             req.params.hours_id
@@ -96,7 +96,7 @@ hoursRouter
             .catch(next)
     })
 
-    .patch(jsonParser, (req, res, next) => {
+    .patch(requireAuth, jsonParser, (req, res, next) => {
         const { hours_id, sun_open, sun_close, mon_open, mon_close, tues_open, tues_close, wed_open,
             wed_close, thu_open, thu_close, fri_open, fri_close, sat_open, sat_close } = req.body
         const updateHour = { hours_id, sun_open, sun_close, mon_open, mon_close, tues_open, tues_close, wed_open,
