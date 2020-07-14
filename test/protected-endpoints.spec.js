@@ -1,23 +1,23 @@
-const knex = require('knex')
+/* const knex = require('knex')
 const app = require('../src/app')
 const helpers = require('./test-helpers')
 
 describe('Protected endpoints', function () {
-  let db
+  let db */
 
   /* const {
     testUsers,
     testArticles,
     testComments,
   } = helpers.makeArticlesFixtures() */
-
+/* 
   before('make knex instance', () => {
     db = knex({
       client: 'pg',
       connection: process.env.TEST_DB_URL,
     })
     app.set('db', db)
-  })
+  }) */
 
   /* after('disconnect from db', () => db.destroy())
 
@@ -34,7 +34,7 @@ describe('Protected endpoints', function () {
     )
   ) */
 
-  const protectedEndpoints = [
+/*   const protectedEndpoints = [ */
 
 
 
@@ -63,7 +63,7 @@ describe('Protected endpoints', function () {
       method: supertest(app).post,
     },
  */
-  ]
+  /* ]
 
   protectedEndpoints.forEach(endpoint => {
     describe(endpoint.name, () => {
@@ -88,4 +88,4 @@ describe('Protected endpoints', function () {
       })
     })
   })
-})
+}) */
