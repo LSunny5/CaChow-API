@@ -12,6 +12,7 @@ const usersRouter = require('./users/users-router');
 const restaurantRouter = require('./restaurants/restaurants-router');
 const hoursRouter = require('./hours/hours-router');
 const menuRouter = require('./menu/menu-router');
+const authRouter = require('./auth/auth-router');
 
 const app = express();
 
@@ -25,10 +26,11 @@ app.get('/api', (req, res) => {
 })
 
 app.use('/api/category', categoriesRouter);
-app.use('/api/users', usersRouter);
 app.use('/api/restaurants', restaurantRouter);
 app.use('/api/hours', hoursRouter);
 app.use('/api/menu', menuRouter);
+app.use('/api/auth', authRouter);
+app.use('/api/users', usersRouter);
 
 app.use(errorHandler);
 
