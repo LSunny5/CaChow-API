@@ -1,8 +1,8 @@
 BEGIN;
-INSERT INTO restaurant_hours (hours_id, sun_open, sun_close, mon_open, mon_close, tues_open, tues_close, wed_open, wed_close, thu_open, thu_close, fri_open, fri_close, sat_open, sat_close)
+INSERT INTO restaurant_hours (hours_id, sun_open, sun_close, mon_open, mon_close, tues_open, tues_close, wed_open, wed_close, thu_open, thu_close, fri_open, fri_close, sat_open, sat_close, hours_owner)
 VALUES
-    (1, '11:00AM', '9:00PM', '11:00AM', '9:00PM', '11:00AM', '9:00PM', '11:00AM', '9:00PM', '11:00AM', '9:00PM', '11:00AM', '9:00PM', '11:00AM', '9:00PM'),
-    (2, 'Closed', 'Closed', '11:00AM', '7:00PM', '11:00AM', '7:00PM', '11:00AM', '7:00PM', '11:00AM', '7:00PM', '11:00AM', '7:00PM', '11:00AM', '5:00PM');
+    (1, '11:00AM', '9:00PM', '11:00AM', '9:00PM', '11:00AM', '9:00PM', '11:00AM', '9:00PM', '11:00AM', '9:00PM', '11:00AM', '9:00PM', '11:00AM', '9:00PM', 'NotAssignedOwner'),
+    (2, 'Closed', 'Closed', '11:00AM', '7:00PM', '11:00AM', '7:00PM', '11:00AM', '7:00PM', '11:00AM', '7:00PM', '11:00AM', '7:00PM', '11:00AM', '5:00PM', 'js12345');
 
 INSERT INTO cachow_restaurants (r_id, r_owner, r_image, r_type, r_name, r_address, r_city, r_state, r_zip, r_phone, r_hours)
 VALUES

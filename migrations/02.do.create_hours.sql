@@ -13,5 +13,6 @@ CREATE TABLE restaurant_hours (
     fri_open TEXT NOT NULL,
     fri_close TEXT NOT NULL,
     sat_open TEXT NOT NULL,
-    sat_close TEXT NOT NULL
+    sat_close TEXT NOT NULL, 
+    hours_owner TEXT REFERENCES cachow_users(user_name) ON DELETE CASCADE NOT NULL
 );
