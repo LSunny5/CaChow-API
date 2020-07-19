@@ -6,8 +6,8 @@ VALUES
 
 INSERT INTO cachow_restaurants (r_id, r_owner, r_image, r_type, r_name, r_address, r_city, r_state, r_zip, r_phone, r_hours)
 VALUES
-    (1, 1, 'No Image', 'Fast Food', 'Shake Shack', '610 Commons Way', 'Bridgewater', 'NJ', '08807', '(732) 347-8820', 1),
-    (2, 2, 'No Image', 'Fast Food', 'Chick-fil-A', '3710 U.S. 9 Ste 2314', 'Freehold', 'NJ', '07728', '(732) 308-3402', 2);
+    (1, 'NotAssignedOwner', 'No Image', 'Fast Food', 'Shake Shack', '610 Commons Way', 'Bridgewater', 'NJ', '08807', '(732) 347-8820', 1),
+    (2, 'js12345', 'No Image', 'Fast Food', 'Chick-fil-A', '3710 U.S. 9 Ste 2314', 'Freehold', 'NJ', '07728', '(732) 308-3402', 2);
 
 INSERT INTO restaurant_menu (item_id, item_restaurant, item_name, item_cat, item_price)
 VALUES

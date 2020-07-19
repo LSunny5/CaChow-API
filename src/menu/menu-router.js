@@ -37,7 +37,6 @@ menuRouter
             }
         }
 
-        //validate the folder
         const error = MenuService.validateItem(newItem);
         if (error) {
             logger.error({

@@ -7,6 +7,9 @@ const UsersService = {
     getAllUsers(knex) {
         return knex.select('*').from('cachow_users')
     },
+    getById(knex, id) {
+        return knex.from('cachow_users').select('*').where('user_id', id || 0).first()
+    },
     hasUserWithUserName(db, user_name) {
         return db('cachow_users')
             .where({ user_name })
@@ -19,6 +22,11 @@ const UsersService = {
             .into('cachow_users')
             .returning('*')
             .then(([user]) => user)
+    },
+    deleteUser(knex, user_name) {
+        return knex('cachow_users')
+            .where({user_name})
+            .delete()
     },
     validatePassword(password) {
         if (password.length < 8) {
@@ -40,7 +48,7 @@ const UsersService = {
     },
     serializeUser(user) {
         return {
-            id: user.id,
+            user_id: user.user_id,
             full_name: xss(user.full_name),
             user_name: xss(user.user_name),
             password: xss(user.password),

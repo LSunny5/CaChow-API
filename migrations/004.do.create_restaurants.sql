@@ -1,6 +1,6 @@
 CREATE TABLE cachow_restaurants (
     r_id SERIAL PRIMARY KEY, 
-    r_owner SERIAL REFERENCES cachow_users(user_id) ON DELETE CASCADE NOT NULL, 
+    r_owner TEXT REFERENCES cachow_users(user_name) ON DELETE CASCADE NOT NULL, 
     r_image TEXT, 
     r_type TEXT NOT NULL, 
     r_name TEXT NOT NULL, 
