@@ -48,7 +48,8 @@ const HoursService = {
             fri_open: xss(hour.fri_open),
             fri_close: xss(hour.fri_close),
             sat_open: xss(hour.sat_open),
-            sat_close: xss(hour.sat_close)
+            sat_close: xss(hour.sat_close), 
+            hours_owner: xss(hour.hours_owner),
         }
     }
 }

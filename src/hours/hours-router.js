@@ -20,10 +20,10 @@ hoursRouter
     })
     .post(requireAuth, jsonParser, (req, res, next) => {
         const { sun_open, sun_close, mon_open, mon_close, tues_open, tues_close, wed_open,
-            wed_close, thu_open, thu_close, fri_open, fri_close, sat_open, sat_close } = req.body
+            wed_close, thu_open, thu_close, fri_open, fri_close, sat_open, sat_close, hours_owner } = req.body
         const newHours = {
             sun_open, sun_close, mon_open, mon_close, tues_open, tues_close, wed_open,
-            wed_close, thu_open, thu_close, fri_open, fri_close, sat_open, sat_close
+            wed_close, thu_open, thu_close, fri_open, fri_close, sat_open, sat_close, hours_owner
         }
 
         //check to see all keys are in the response body
@@ -98,9 +98,9 @@ hoursRouter
 
     .patch(requireAuth, jsonParser, (req, res, next) => {
         const { hours_id, sun_open, sun_close, mon_open, mon_close, tues_open, tues_close, wed_open,
-            wed_close, thu_open, thu_close, fri_open, fri_close, sat_open, sat_close } = req.body
+            wed_close, thu_open, thu_close, fri_open, fri_close, sat_open, sat_close, hours_owner } = req.body
         const updateHour = { hours_id, sun_open, sun_close, mon_open, mon_close, tues_open, tues_close, wed_open,
-            wed_close, thu_open, thu_close, fri_open, fri_close, sat_open, sat_close }
+            wed_close, thu_open, thu_close, fri_open, fri_close, sat_open, sat_close, hours_owner }
 
         const numberOfValues = Object.values(updateHour).filter(Boolean).length
 
