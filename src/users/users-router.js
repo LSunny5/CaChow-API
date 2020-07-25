@@ -23,13 +23,14 @@ usersRouter
                 })
 
         const passwordError = UsersService.validatePassword(password)
-
+        const lowercaseUser = user_name.toLowerCase().trim();
+                
         if (passwordError)
             return res.status(400).json({ error: passwordError })
 
         UsersService.hasUserWithUserName(
             req.app.get('db'),
-            user_name.toLowerCase().trim()
+            lowercaseUser
         )
             .then(hasUserWithUserName => {
                 if (hasUserWithUserName)
@@ -38,7 +39,7 @@ usersRouter
                 return UsersService.hashPassword(password)
                     .then(hashedPassword => {
                         const newUser = {
-                            user_name: username.toLowerCase().trim(),
+                            user_name: lowercaseUser,
                             password: hashedPassword,
                             full_name,
                             date_created: 'now()',
