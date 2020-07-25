@@ -29,7 +29,7 @@ usersRouter
 
         UsersService.hasUserWithUserName(
             req.app.get('db'),
-            user_name
+            user_name.toLowerCase().trim()
         )
             .then(hasUserWithUserName => {
                 if (hasUserWithUserName)
@@ -38,7 +38,7 @@ usersRouter
                 return UsersService.hashPassword(password)
                     .then(hashedPassword => {
                         const newUser = {
-                            user_name,
+                            user_name: username.toLowerCase().trim(),
                             password: hashedPassword,
                             full_name,
                             date_created: 'now()',
