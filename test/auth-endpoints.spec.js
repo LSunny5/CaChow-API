@@ -1,27 +1,26 @@
-/* const knex = require('knex')
+const knex = require('knex')
 const jwt = require('jsonwebtoken')
 const app = require('../src/app')
 const helpers = require('./test-helpers')
+const { makeUsersArray } = require('./test-helpers')
 
 describe('Auth Endpoints', function () {
     let db
 
-    const { testUsers } = helpers.makeArticlesFixtures()
-    const testUser = testUsers[0]
+    const testUsers = makeUsersArray();
+    const testUser = testUsers[0];
 
     before('make knex instance', () => {
         db = knex({
             client: 'pg',
-            connection: process.env.TEST_DB_URL,
+            connection: process.env.TEST_DATABASE_URL,
         })
         app.set('db', db)
     })
 
     after('disconnect from db', () => db.destroy())
-
-    before('cleanup', () => helpers.cleanTables(db))
-
-    afterEach('cleanup', () => helpers.cleanTables(db))
+    before('cleanup', () => db.raw('TRUNCATE cachow_users RESTART IDENTITY CASCADE'))
+    afterEach('cleanup', () => db.raw('TRUNCATE cachow_users RESTART IDENTITY CASCADE'))
 
     describe(`POST /api/auth/login`, () => {
         beforeEach('insert users', () =>
@@ -56,7 +55,7 @@ describe('Auth Endpoints', function () {
             return supertest(app)
                 .post('/api/auth/login')
                 .send(userInvalidUser)
-                .expect(400, { error: `Incorrect user_name or password` })
+                .expect(400, { error: `Sorry! Incorrect username or password` })
         })
 
         it(`responds 400 'invalid user_name or password' when bad password`, () => {
@@ -64,7 +63,7 @@ describe('Auth Endpoints', function () {
             return supertest(app)
                 .post('/api/auth/login')
                 .send(userInvalidPass)
-                .expect(400, { error: `Incorrect user_name or password` })
+                .expect(400, { error: `Sorry! Incorrect username or password` })
         })
 
         it(`responds 200 and JWT auth token using secret when valid credentials`, () => {
@@ -116,4 +115,4 @@ describe('Auth Endpoints', function () {
         })
     })
 
-}) */
+})

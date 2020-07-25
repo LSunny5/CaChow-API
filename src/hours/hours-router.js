@@ -58,7 +58,7 @@ hoursRouter
             .then(hours => {
                 res
                     .status(201)
-                    .location(path.posix.join(req.originalUrl, `/${hours.hour_id}`))
+                    .location(path.posix.join(req.originalUrl, `/${hours.hours_id}`))
                     .json(HoursService.serializeHour(hours))
             })
             .catch(next)
@@ -99,8 +99,10 @@ hoursRouter
     .patch(requireAuth, jsonParser, (req, res, next) => {
         const { hours_id, sun_open, sun_close, mon_open, mon_close, tues_open, tues_close, wed_open,
             wed_close, thu_open, thu_close, fri_open, fri_close, sat_open, sat_close, hours_owner } = req.body
-        const updateHour = { hours_id, sun_open, sun_close, mon_open, mon_close, tues_open, tues_close, wed_open,
-            wed_close, thu_open, thu_close, fri_open, fri_close, sat_open, sat_close, hours_owner }
+        const updateHour = {
+            hours_id, sun_open, sun_close, mon_open, mon_close, tues_open, tues_close, wed_open,
+            wed_close, thu_open, thu_close, fri_open, fri_close, sat_open, sat_close, hours_owner
+        }
 
         const numberOfValues = Object.values(updateHour).filter(Boolean).length
 

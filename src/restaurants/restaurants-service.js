@@ -27,53 +27,38 @@ const RestaurantService = {
             .update(editedRestaurant)
     },
     validateRestaurant(restaurant) {
+        //TODO: check owner name
+        //TODO: check image url
+        //TODO: check restaurant type
+        //TODO: check length of restaurant name
+        if ((restaurant.r_name).length < 2 || (restaurant.r_name).length > 50) {
+            return `Restaurant name needs to be less than 25 char and more than 2 char.`;
+        };
 
-      //check owner name
-
-
-      //check image url
-
-      //check restaurant type
-
-      //check length of restaurant name
-      if ((restaurant.r_name).length < 2 || (restaurant.r_name).length > 50) {
-        return `Restaurant name needs to be less than 25 char and more than 2 char.`;
-      };
-
-      //check address
-
-      //check city length
-
-      //check zip code
-
-      //check state is one of US states
-      if ((restaurant.r_state).length > 25) {
-        return `Restaurant state is incorrect, please check again`;
-      }
-
-      //check phone number
-
-      //check hours id in table
-
-
-      
-      return null;
-
-
+        //TODO: check address
+        //TODO: check city length
+        //TODO: check zip code
+        //TODO: check state is one of US states
+        if ((restaurant.r_state).length > 25) {
+            return `Restaurant state is incorrect, please check again`;
+        }
+        //TODO: check phone number
+        //TODO: check hours id in table
+        return null;
     },
     serializeRestaurant(restaurant) {
         return {
             r_id: restaurant.r_id,
             r_owner: xss(restaurant.r_owner),
             r_image: xss(restaurant.r_image),
-            r_type: xss(restaurant.r_type), 
-            r_name: xss(restaurant.r_name), 
-            r_address: xss(restaurant.r_address), 
-            r_city: xss(restaurant.r_city), 
-            r_state: xss(restaurant.r_state), 
-            r_zip: xss(restaurant.r_zip), 
-            r_phone: xss(restaurant.r_phone), 
-            r_hours: xss(restaurant.r_hours)
+            r_type: xss(restaurant.r_type),
+            r_name: xss(restaurant.r_name),
+            r_address: xss(restaurant.r_address),
+            r_city: xss(restaurant.r_city),
+            r_state: xss(restaurant.r_state),
+            r_zip: xss(restaurant.r_zip),
+            r_phone: xss(restaurant.r_phone),
+            r_hours: parseInt(xss(restaurant.r_hours))
         }
     }
 }

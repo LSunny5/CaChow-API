@@ -26,12 +26,10 @@ const MenuService = {
       .where({ item_id })
       .update(editedItem)
   },
+  //todo add more validations
   validateItem(item) {
     //check to see if restaurant referenced is in dataase
     if (!item.item_restaurant) {
-
-
-
       return `Item restaurant is not referencing a restaurant...`;
     };
     if ((item.item_name).length < 3 || item.item_name.length > 25) {
@@ -40,20 +38,10 @@ const MenuService = {
     //check to see if category is in category given
     if (!item.item_cat) {
 
-
-
-
-
-
       return `Item's category is incorrect or not in database...`;
     };
     //check to see if item price is a numeric number
     if (!item.item_price) {
-
-
-
-
-
 
       return `Item price needs two decimal places...`;
     };
@@ -62,9 +50,9 @@ const MenuService = {
   serializeItem(item) {
     return {
       item_id: item.item_id,
-      item_restaurant: xss(item.item_restaurant),
+      item_restaurant: parseInt(xss(item.item_restaurant)),
       item_name: xss(item.item_name),
-      item_cat: xss(item.item_cat),
+      item_cat: parseInt(xss(item.item_cat)),
       item_price: xss(item.item_price)
     }
   }

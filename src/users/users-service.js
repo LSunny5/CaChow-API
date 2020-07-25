@@ -25,7 +25,7 @@ const UsersService = {
     },
     deleteUser(knex, user_name) {
         return knex('cachow_users')
-            .where({user_name})
+            .where({ user_name })
             .delete()
     },
     validatePassword(password) {
