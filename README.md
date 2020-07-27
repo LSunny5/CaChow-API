@@ -56,7 +56,7 @@ JSON
 ```
 
 ##### Delete Category
-*Protected Endpoint (Uses JWT)
+*Protected Endpoint (Uses JWT)      <br />
 DELETE /api/category/:cat_id        <br />
 Example: /api/category/10
 ```javascript
@@ -64,7 +64,7 @@ JSON: empty
 ```
 
 ##### Update a category
-*Protected Endpoint (Uses JWT)
+*Protected Endpoint (Uses JWT)      <br />
 PATCH /api/category/:cat_id         <br />
 Example: /api/category/10
 ```javascript
@@ -80,22 +80,22 @@ GET /api/hours/
 ```javascript
 JSON:  [
     {
-        "hours_id":1,                       (Hours ID)
-        "sun_open":"11:00AM",               (Time Sunday Open)
-        "sun_close":"9:00PM",               (Time Sunday Closed)
-        "mon_open":"11:00AM",               (Time Monday Open)
-        "mon_close":"9:00PM",               (Time Monday Closed)
-        "tues_open":"11:00AM",              (Time Tuesday Open)
-        "tues_close":"9:00PM",              (Time Tuesday Closed)
-        "wed_open":"11:00AM",               (Time Wednesday Open)
-        "wed_close":"9:00PM",               (Time Wednesday Closed)
-        "thu_open":"11:00AM",               (Time Thursday Open)
-        "thu_close":"9:00PM",               (Time Thursday Closed)
-        "fri_open":"11:00AM",               (Time Friday Open)
-        "fri_close":"9:00PM",               (Time Friday Closed)
-        "sat_open":"11:00AM",               (Time Saturday Open)
-        "sat_close":"9:00PM",               (Time Saturday Closed)
-        "hours_owner":"notassignedowner"    (User Hours is assigned to)
+        "hours_id":1,                       //(Hours ID)
+        "sun_open":"11:00AM",               //(Time Sunday Open)
+        "sun_close":"9:00PM",               //(Time Sunday Closed)
+        "mon_open":"11:00AM",               //(Time Monday Open)
+        "mon_close":"9:00PM",               //(Time Monday Closed)
+        "tues_open":"11:00AM",              //(Time Tuesday Open)
+        "tues_close":"9:00PM",              //(Time Tuesday Closed)
+        "wed_open":"11:00AM",               //(Time Wednesday Open)
+        "wed_close":"9:00PM",               //(Time Wednesday Closed)
+        "thu_open":"11:00AM",               //(Time Thursday Open)
+        "thu_close":"9:00PM",               //(Time Thursday Closed)
+        "fri_open":"11:00AM",               //(Time Friday Open)
+        "fri_close":"9:00PM",               //(Time Friday Closed)
+        "sat_open":"11:00AM",               //(Time Saturday Open)
+        "sat_close":"9:00PM",               //(Time Saturday Closed)
+        "hours_owner":"notassignedowner"    //(User Hours is assigned to)
     },
     {   ...
 ```
@@ -150,7 +150,7 @@ JSON
 ```
 
 ##### Delete a restaurant's hours
-*Protected Endpoint (Uses JWT)  
+*Protected Endpoint (Uses JWT)          <br />
 DELETE /api/hours/:hours_id             <br />
 Example: /api/hours/3
 ```javascript
@@ -158,7 +158,7 @@ JSON: empty
 ```
 
 ##### Update a restaurant's hours
-*Protected Endpoint (Uses JWT)
+*Protected Endpoint (Uses JWT)          <br />
 PATCH /api/hours/:hours_id              <br />
 Example: /api/hours/2
 ```javascript
@@ -189,17 +189,17 @@ GET /api/menu/
 ```javascript
 JSON:  [
     {
-        "item_id":1,                            (Item ID)
-        "item_restaurant":1,                    (ID of restaurant Item is present at)
-        "item_name":"Single ShackBurger",       (Name of Item)
-        "item_cat":1,                           (Category the item is located in)
-        "item_price":"$5.89"                    (Price of the item)
+        "item_id":1,                            //(Item ID)
+        "item_restaurant":1,                    //(ID of restaurant Item is present at)
+        "item_name":"Single ShackBurger",       //(Name of Item)
+        "item_cat":1,                           //(Category the item is located in)
+        "item_price":"$5.89"                    //(Price of the item)
     },
     {   ...
 ```
 
 ##### Post a new item
-*Protected Endpoint (Uses JWT)              
+*Protected Endpoint (Uses JWT)      <br />
 POST /api/menu/                     <br />
 ```javascript
 Example Body                
@@ -212,7 +212,7 @@ Example Body
 ```
 
 ##### Get a single item
-GET /api/menu/:item_id 
+GET /api/menu/:item_id          <br />
 Example: /api/menu/9            <br />
 ```javascript
 JSON 
@@ -226,7 +226,7 @@ JSON
 ```
 
 ##### Delete a menu item
-*Protected Endpoint (Uses JWT)
+*Protected Endpoint (Uses JWT)      <br />
 DELETE /api/menu/:item_id           <br />
 Example: /api/menu/3
 ```javascript
@@ -234,7 +234,7 @@ JSON: empty
 ``` 
 
 ##### Update a menu item
-*Protected Endpoint (Uses JWT)
+*Protected Endpoint (Uses JWT)      <br />
 PATCH /api/menu/:item_id            <br />
 Example: /api/menu/2
 ```javascript
@@ -254,17 +254,17 @@ GET /api/restaurants/
 ```javascript
 JSON:  [
     {
-        "r_id":1,                               (Restaurant ID)
-        "r_owner":"notassignedowner",           (Restaurant Owner)
-        "r_image":"No Image",                   (Restaurant image)
-        "r_type":"Fast Food",                   (Type of Restaurant)
-        "r_name":"Shake Shack",                 (Restaurant Name)
-        "r_address":"610 Commons Way",          (Restaurant Address)
-        "r_city":"Bridgewater",                 (Restaurant City)
-        "r_state":"NJ",                         (Restaurant State)
-        "r_zip":"08807",                        (Restaurant Zip Code)
-        "r_phone":"(732) 347-8820",             (Restaurant Phone)
-        "r_hours":1                             (Restaurant Hours ID that matches the hours)
+        "r_id":1,                               //(Restaurant ID)
+        "r_owner":"notassignedowner",           //(Restaurant Owner)
+        "r_image":"No Image",                   //(Restaurant image)
+        "r_type":"Fast Food",                   //(Type of Restaurant)
+        "r_name":"Shake Shack",                 //(Restaurant Name)
+        "r_address":"610 Commons Way",          //(Restaurant Address)
+        "r_city":"Bridgewater",                 //(Restaurant City)
+        "r_state":"NJ",                         //(Restaurant State)
+        "r_zip":"08807",                        //(Restaurant Zip Code)
+        "r_phone":"(732) 347-8820",             //(Restaurant Phone)
+        "r_hours":1                             //(Restaurant Hours ID)
     },
     {   ...
 ```
@@ -343,9 +343,9 @@ POST /api/users/
 ```javascript
 Example Body 
 { 
-    "full_name":"John Doe",                     (Full name of user)
-    "user_name":"JohnDoeUser",                  (Username of user)
-    "password":"Somepassword",                  (Password of user - will be encrypted)
+    "full_name":"John Doe",                     //(Full name of user)
+    "user_name":"JohnDoeUser",                  //(Username of user)
+    "password":"Somepassword",                  //(Password of user - will be encrypted)
 }
 ```
 
