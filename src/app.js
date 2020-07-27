@@ -19,7 +19,7 @@ app.use(morgan((NODE_ENV === 'production') ? 'tiny' : 'common', { skip: () => NO
 app.use(cors({ origin: CLIENT_ORIGIN }));
 app.use(helmet());
 
-app.get('/api', (req, res) => { res.send('Hello, world!') });
+app.get('/api', (req, res) => { res.send('Welcome to Cachow API!') });
 app.use('/api/category', categoriesRouter);
 app.use('/api/restaurants', restaurantRouter);
 app.use('/api/hours', hoursRouter);

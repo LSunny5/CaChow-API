@@ -51,6 +51,7 @@ hoursRouter
             return res.status(400).send(error);
         }
 
+        //add hours to database
         HoursService.insertHours(
             req.app.get('db'),
             newHours
