@@ -16,10 +16,11 @@ This is the documentation for the Cachow API
 #### Categories Endpoints:   
 ##### Base page Test Endpoint 
 GET /api 
+```javascript
 "Welcome to Cachow API!"
-
+```
 ##### Get all categories
-GET /api/category/          <br />
+GET /api/category/         
 ```javascript
 JSON:  [
     {
@@ -35,39 +36,48 @@ JSON:  [
 
 ##### Post a New Category   
 *Protected Endpoint (Uses JWT)  <br />
-POST /api/category/             <br />
-Example Body                    <br />
+POST /api/category/            
+```javascript
+Example Body                    
     { 
 	    "cat_name": "test"
     }
+```
 
 ##### Get a single Category
-GET /api/category/:cat_id
+GET /api/category/:cat_id       <br />
 Example: /api/category/10
+```javascript
 JSON 
     {
         "cat_id": 10,
         "cat_name": "Entree"
     }
+```
 
 ##### Delete Category
 *Protected Endpoint (Uses JWT)
-DELETE /api/category/:cat_id
+DELETE /api/category/:cat_id        <br />
 Example: /api/category/10
+```javascript
 JSON: empty
+```
 
 ##### Update a category
 *Protected Endpoint (Uses JWT)
-PATCH /api/category/:cat_id
+PATCH /api/category/:cat_id         <br />
 Example: /api/category/10
+```javascript
 Example Body
 { 
 	"cat_name": "test 1 edited"
 }
+```
 
 #### Restaurant Hours Table
 ##### Get all hours for restaurants
 GET /api/hours/
+```javascript
 JSON:  [
     {
         "hours_id":1,                       (Hours ID)
@@ -88,10 +98,12 @@ JSON:  [
         "hours_owner":"notassignedowner"    (User Hours is assigned to)
     },
     {   ...
+```
 
 ##### Post a restaurant's hours
 *Protected Endpoint (Uses JWT)
-POST /api/hours/ 
+POST /api/hours/                    <br />
+```javascript
 Example Body 
 { 
 	"sun_open":"11:00AM",               
@@ -110,10 +122,12 @@ Example Body
     "sat_close":"9:00PM",             
     "hours_owner":"johndoe"           
 }
+```
 
 ##### Get a single restaurant's hours
 GET /api/hours/:hours_id 
-Example: /api/hours/2
+Example: /api/hours/2               <br />
+```javascript
 JSON 
 {
     "hours_id":2,
@@ -133,17 +147,21 @@ JSON
     "sat_close":"5:00PM",
     "hours_owner":"js12345"
 }
+```
 
 ##### Delete a restaurant's hours
-*Protected Endpoint (Uses JWT)
-DELETE /api/hours/:hours_id
+*Protected Endpoint (Uses JWT)  
+DELETE /api/hours/:hours_id             <br />
 Example: /api/hours/3
+```javascript
 JSON: empty
+```
 
 ##### Update a restaurant's hours
 *Protected Endpoint (Uses JWT)
-PATCH /api/hours/:hours_id
+PATCH /api/hours/:hours_id              <br />
 Example: /api/hours/2
+```javascript
 Example Body 
 { 
 	"hours_id":2,
@@ -163,10 +181,12 @@ Example Body
     "sat_close":"5:00PM",
     "hours_owner":"js12345"
 }
+```
 
 #### Menu Items Table
 ##### Get all items
 GET /api/menu/
+```javascript
 JSON:  [
     {
         "item_id":1,                            (Item ID)
@@ -176,10 +196,12 @@ JSON:  [
         "item_price":"$5.89"                    (Price of the item)
     },
     {   ...
+```
 
 ##### Post a new item
 *Protected Endpoint (Uses JWT)              
-POST /api/menu/                 
+POST /api/menu/                     <br />
+```javascript
 Example Body                
 { 
 	"item_restaurant":1,                
@@ -187,10 +209,12 @@ Example Body
     "item_cat":2,                          
     "item_price":"$5.50"            
 }
+```
 
 ##### Get a single item
 GET /api/menu/:item_id 
-Example: /api/menu/9
+Example: /api/menu/9            <br />
+```javascript
 JSON 
 {
     "item_id":9,
@@ -199,17 +223,21 @@ JSON
     "item_cat":6,
     "item_price":"$0.00"
 }
+```
 
 ##### Delete a menu item
 *Protected Endpoint (Uses JWT)
-DELETE /api/menu/:item_id
+DELETE /api/menu/:item_id           <br />
 Example: /api/menu/3
+```javascript
 JSON: empty
+``` 
 
 ##### Update a menu item
 *Protected Endpoint (Uses JWT)
-PATCH /api/menu/:item_id
+PATCH /api/menu/:item_id            <br />
 Example: /api/menu/2
+```javascript
 Example Body 
 { 
 	"item_id":2,
@@ -218,10 +246,12 @@ Example Body
     "item_cat":1,
     "item_price":"$9.99"
 }
+```
 
 #### Restaurants Table
 ##### Get all restaurants
 GET /api/restaurants/
+```javascript
 JSON:  [
     {
         "r_id":1,                               (Restaurant ID)
@@ -237,10 +267,12 @@ JSON:  [
         "r_hours":1                             (Restaurant Hours ID that matches the hours)
     },
     {   ...
+```
 
 ##### Post a new restaurant
-*Protected Endpoint (Uses JWT)
-POST /api/restaurants/ 
+*Protected Endpoint (Uses JWT)          <br />
+POST /api/restaurants/              
+```javascript
 Example Body 
 { 
 	"r_owner":"guest",
@@ -254,10 +286,11 @@ Example Body
     "r_phone":"(111) 111-1111",
     "r_hours":1
 }
-
+```
 ##### Get a single restaurant
-GET /api/restaurants/:r_id 
+GET /api/restaurants/:r_id          <br />
 Example: /api/restaurants/2
+```javascript
 JSON 
 {
     "r_id":2,
@@ -272,17 +305,21 @@ JSON
     "r_phone":"(732) 308-3402",
     "r_hours":2
 }
+```
 
 ##### Delete a restaurant
-*Protected Endpoint (Uses JWT)
-DELETE /api/restaurants/:r_id
+*Protected Endpoint (Uses JWT)          <br />
+DELETE /api/restaurants/:r_id           <br />
 Example: /api/restaurants/3
+```javascript
 JSON: empty
+```
 
 ##### Update a restaurant
-*Protected Endpoint (Uses JWT)
-PATCH /api/restaurants/:r_id
+*Protected Endpoint (Uses JWT)          <br />
+PATCH /api/restaurants/:r_id            <br />
 Example: /api/restaurants/2
+```javascript
 Example Body 
 { 
     "r_id":2,
@@ -297,23 +334,28 @@ Example Body
     "r_phone":"(732) 308-3402",
     "r_hours":2
 }
+```
 
 #### Users Table
 ##### Post a new user
-*Protected Endpoint (Uses JWT)
+*Protected Endpoint (Uses JWT)      <br />
 POST /api/users/ 
+```javascript
 Example Body 
 { 
     "full_name":"John Doe",                     (Full name of user)
     "user_name":"JohnDoeUser",                  (Username of user)
     "password":"Somepassword",                  (Password of user - will be encrypted)
 }
+```
 
 ##### Delete a user
-*Protected Endpoint (Uses JWT)
-DELETE /api/users/:user_name
+*Protected Endpoint (Uses JWT)          <br />
+DELETE /api/users/:user_name            <br />
 Example: /api/users/johndoeuser
+```javascript
 JSON: empty
+```
 
 ### Validation errors 
 Errors will be thrown for these reasons: 
