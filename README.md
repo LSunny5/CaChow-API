@@ -19,34 +19,36 @@ GET /api
 "Welcome to Cachow API!"
 
 ##### Get all categories
-GET /api/category/
+GET /api/category/          <br />
+```javascript
 JSON:  [
     {
-        "cat_id":1,                     (Category ID)
-        "cat_name":"Burgers"            (Category Name)
+        "cat_id":1,                    // (Category ID)
+        "cat_name":"Burgers"           // (Category Name)
     },
     {
         "cat_id":2,
         "cat_name":"Chicken"
     },
     {   ...
+```
 
-##### Post a New Category
-*Protected Endpoint (Uses JWT)
-POST /api/category/ 
-Example Body 
-{ 
-	"cat_name": "test"
-}
+##### Post a New Category   
+*Protected Endpoint (Uses JWT)  <br />
+POST /api/category/             <br />
+Example Body                    <br />
+    { 
+	    "cat_name": "test"
+    }
 
 ##### Get a single Category
 GET /api/category/:cat_id
 Example: /api/category/10
 JSON 
-{
-    "cat_id": 10,
-    "cat_name": "Entree"
-}
+    {
+        "cat_id": 10,
+        "cat_name": "Entree"
+    }
 
 ##### Delete Category
 *Protected Endpoint (Uses JWT)
@@ -176,14 +178,14 @@ JSON:  [
     {   ...
 
 ##### Post a new item
-*Protected Endpoint (Uses JWT)
-POST /api/menu/ 
-Example Body 
+*Protected Endpoint (Uses JWT)              
+POST /api/menu/                 
+Example Body                
 { 
-	"item_restaurant":1,               
+	"item_restaurant":1,                
     "item_name":"Another Sandwich",      
     "item_cat":2,                          
-    "item_price":"$5.50" 
+    "item_price":"$5.50"            
 }
 
 ##### Get a single item
